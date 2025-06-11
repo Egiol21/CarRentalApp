@@ -1,0 +1,82 @@
+﻿<Window x:Class="CarRentalApp.Views.CarManagementWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Car Management" Height="400" Width="600" WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBox x:Name="BrandBox" Width="100" Margin="0,0,10,0">
+                <TextBox.Style>
+                    <Style TargetType="TextBox">
+                        <Style.Triggers>
+                            <Trigger Property="Text" Value="">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <VisualBrush Stretch="None">
+                                            <VisualBrush.Visual>
+                                                <TextBlock Text="Brand" Foreground="Gray"/>
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+            <TextBox x:Name="ModelBox" Width="100" Margin="0,0,10,0">
+                <TextBox.Style>
+                    <Style TargetType="TextBox">
+                        <Style.Triggers>
+                            <Trigger Property="Text" Value="">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <VisualBrush Stretch="None">
+                                            <VisualBrush.Visual>
+                                                <TextBlock Text="Model" Foreground="Gray"/>
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+            <TextBox x:Name="PlateBox" Width="100" Margin="0,0,10,0">
+                <TextBox.Style>
+                    <Style TargetType="TextBox">
+                        <Style.Triggers>
+                            <Trigger Property="Text" Value="">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <VisualBrush Stretch="None">
+                                            <VisualBrush.Visual>
+                                                <TextBlock Text="Plate" Foreground="Gray"/>
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+            <Button Content="Add Car" Click="AddCar_Click"/>
+        </StackPanel>
+
+        <DataGrid x:Name="CarGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="40"/>
+                <DataGridTextColumn Header="Brand" Binding="{Binding Brand}" Width="*"/>
+                <DataGridTextColumn Header="Model" Binding="{Binding Model}" Width="*"/>
+                <DataGridTextColumn Header="Plate" Binding="{Binding PlateNumber}" Width="*"/>
+                <DataGridCheckBoxColumn Header="Available" Binding="{Binding IsAvailable}" Width="80"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
